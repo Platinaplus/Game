@@ -1,0 +1,144 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #434344;
+  margin: 0;
+  padding: 0;
+  background-color: #cfd0cf;
+}
+h1 {
+  font-size: 42px;
+  line-height: 47px;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-rows: 130px 130px 130px;
+  grid-template-columns: 130px 130px 130px 130px;
+  grid-gap: 25px;
+  justify-content: center;
+}
+
+.card {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  perspective: 600px;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.back,
+.mem {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+.back {
+  background: linear-gradient(to top right, #22ab93, #19668d);
+  border: 5px solid #fff;
+}
+.mem {
+  font-size: 75px;
+  background-color: white;
+  transform: rotateY(180deg);
+}
+.anime {
+  transform: rotateY(180deg);
+}
+.timer {
+  display: block;
+  font-size: 32px;
+  line-height: 36px;
+  margin: 30px auto;
+  text-align: center;
+}
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(196, 188, 188, 0.5);
+  visibility: hidden;
+  z-index: 20;
+}
+.table {
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  max-width: 350px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  background-color: white;
+  text-align: center;
+}
+.result {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+#a,
+#b,
+#c,
+#d {
+  animation: jump 1s infinite ease-in-out;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  perspective-origin: top;
+  transform-origin: bottom;
+}
+
+#b {
+  animation-delay: 0.1s;
+}
+#c {
+  animation-delay: 0.2s;
+}
+#d {
+  animation-delay: 0.3s;
+}
+
+.modal_overlay .button {
+  font-size: 20px;
+  height: 40px;
+  color: white;
+  background: linear-gradient(to right, #19668d, #22ab93);
+  border-radius: 10px;
+  margin-top: 40px;
+  padding-right: 30px;
+  padding-left: 30px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  border-style: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  z-index: 40;
+  opacity: 1;
+}
+.button:focus {
+  box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.5);
+  border-style: none;
+  outline: none;
+}
+@keyframes jump {
+  50% {
+    transform: rotateX(60deg);
+  }
+}
